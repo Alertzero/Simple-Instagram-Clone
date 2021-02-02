@@ -21,12 +21,14 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'rack', '~> 2.2', '>= 2.2.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise'
+gem 'carrierwave', '~> 2.1'
+gem 'fog', '~> 2.2'
+gem 'mini_magick', '~> 4.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -45,6 +47,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'figaro'
 end
 
 group :test do
