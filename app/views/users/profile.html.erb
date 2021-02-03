@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 text-center">
+      <% @user.image_urls.each do |profile_pic| %>
+        <%= image_tag profile_pic, width: "200px",class: "profile-pic" %>
+      <% end %>
+    </div>
+    <div class="col-8 text-left">
+      <h1> <%= @user.full_name %> </h1>
+      <%= link_to "Edit", edit_user_registration_path, class: "btn btn-secondary"%>
+      <div class="profile-stats"><%= @user.post_count %> posts</div>
+      <div class="profile-stats"><%= @user.total_followers %> followers</div>
+      <div class="profile-stats"><%= @user.total_following %> following</div>
+      <p><%= @user.full_name %></p>
+      <%= simple_format @user.description %>
+      <p><%= link_to @user.website if @user.website.present? %></p>
+    </div>
+    <div class="row profile-posts">
+      <div class="col-12">
+        <% @posts.each do |post|%>
+        
+          <% post.image_urls.each do |url| %>
+        <div>
+              <%= image_tag url, class: "img img-fluid mb-5 col-4" %>
+        </div>
+          <%end%>
+          
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>

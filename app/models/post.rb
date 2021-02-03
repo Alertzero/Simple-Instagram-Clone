@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
-    mount_uploader :image, ImageUploader
+    mount_uploaders :image, ImageUploader
+    serialize :image, JSON
     belongs_to :user
     before_create :set_active
 
@@ -9,4 +10,6 @@ class Post < ApplicationRecord
     def set_active
         self.active = true
     end
+
+
 end

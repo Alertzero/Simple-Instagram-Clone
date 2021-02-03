@@ -1,7 +1,7 @@
 <%= form_with model: @post do |f|%>
   <p>
     <label>My Image</label>
-    <%= f.file_field :image, class: "form-control"%>
+    <%= f.file_field :image, multiple: true, class: "form-control"%>
     <%= f.hidden_field :image_cache %>
     <%= f.submit "Post", class: "btn btn-success m-2" %>
   </p>

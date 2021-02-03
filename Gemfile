@@ -26,12 +26,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'rack', '~> 2.2', '>= 2.2.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise'
-gem 'carrierwave', '~> 2.1'
-gem 'fog', '~> 2.2'
+gem 'carrierwave', :github => "carrierwaveuploader/carrierwave"
+gem 'mime-types', '~> 3.1'
 gem 'mini_magick', '~> 4.11'
-
+gem 'fog-aws', '~> 0.7.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
