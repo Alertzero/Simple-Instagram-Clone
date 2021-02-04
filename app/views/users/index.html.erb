@@ -3,19 +3,40 @@
     <div class="col-8">
       <% @posts.each do |post|%>
         <div class="post-meta">
-          <%= post.user.username %>
+          <% post.user.image_urls.each do |profile_pic| %>
+            <%= image_tag profile_pic, width: "50px", height: "50px", class: "profile-pic" %>
+          <% end %>
+          <%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %>
         </div>
         <% post.image_urls.each do |url| %>
-          <%= image_tag url, class: "img img-fluid mb-5 align-items-start" %>
+          <%= image_tag url, class: "img img-fluid border border-dark align-items-start" %>
         <%end%>
+     
+        <div class="post-details ">
+           <div class="post-actions">
+        <i class="fa fa-heart fa-2x post-like like-<%=post.id%>" data-id="<%=post.id%>"></i>
+        <i class="fa fa-comment fa-2x post-comment"></i>
+        </div>
+          <p><strong><%= pluralize(post.total_likes, "like") %></strong></p>
+          <p><strong><%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %></strong></p>
+          <%= simple_format post.description%>
+          <p class = "text-muted"><%= time_ago_in_words post.created_at%> ago</p>
+        </div>
       <% end %>
     </div>
     <div class="col-4 user-summary">
-      <p><strong><%= current_user.username %></strong><br>
+      <p>
+       <% current_user.image_urls.each do |profile_pic| %>
+        <%= image_tag profile_pic, width: "50px", height: "50px",class: "profile-pic" %>
+      <% end %>
+      
+      
+      <strong><%= current_user.username %></strong><br>
         <%= current_user.username%></p>
-    </div>
-    <div class="follower-sg">
-    
+      <div class="follower-sg">
+      <%= link_to "View all", "#", class: "float-right text-dark"%>
+      <p class="text-muted"> Suggestions for you </p> 
+      </div>
     </div>
   </div>
 </div>

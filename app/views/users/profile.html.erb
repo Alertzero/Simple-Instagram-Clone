@@ -11,22 +11,21 @@
       <div class="profile-stats"><%= @user.post_count %> posts</div>
       <div class="profile-stats"><%= @user.total_followers %> followers</div>
       <div class="profile-stats"><%= @user.total_following %> following</div>
-      <p><%= @user.full_name %></p>
+      <p><%= @user.username %></p>
       <%= simple_format @user.description %>
       <p><%= link_to @user.website if @user.website.present? %></p>
     </div>
-    <div class="row profile-posts">
-      <div class="col-12">
+    <div class="row ">
+      
         <% @posts.each do |post|%>
-        
           <% post.image_urls.each do |url| %>
-        <div>
-              <%= image_tag url, class: "img img-fluid mb-5 col-4" %>
+        <div class= "col-4">
+              <%= image_tag url, class: "img img-fluid img-thumbnail m-3" %>
         </div>
           <%end%>
           
         <% end%>
-      </div>
+      
     </div>
   </div>
 </div>

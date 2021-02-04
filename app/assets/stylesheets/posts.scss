@@ -1,11 +1,33 @@
 .post-meta {
+  background: #fff;
+  text-align: left;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #333;
+}
 
-background: #fff;
-text-align: left;
-font-weight: bold;
-padding: 10px;
-border: 1px solid #333;
+.post-details {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #333;
+  margin-bottom: 10px;
+}
 
+.post-actions {
+  margin-bottom: 10px;
 
+  i {
+    margin-right: 8px;
+    cursor: pointer;
+    color: slategray;
+  }
+
+  i.active {
+    color: red;
+  }
+
+  i:hover {
+    color: red;
+  }
 }
 
