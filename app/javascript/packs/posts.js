@@ -3,7 +3,8 @@ $(function () {
     var post_id = $(this).data("id");
     $.ajax({
       url: "/post/like/"+post_id,
-      method: "GET"
+      method: "GET",
+      dataType: 'json'
       
     }).done(function (res) {
       console.log(res);
