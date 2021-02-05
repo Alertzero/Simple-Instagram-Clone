@@ -27,6 +27,7 @@
     </style>
   </head>
   <body>
+  <div class = "maincon">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
       <a class="navbar-brand" href="#">Instagram Clone</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,6 @@
             <%= render "layouts/public_nav"%>
           <% end %>
         </ul>
-        
       </div>
     </nav>
     <div role="main" class="container mt-5">
@@ -50,9 +50,10 @@
         </div>
       </div>
     </div>
-
-    <%= render "layouts/footer"%>
+    </div>
+  <%= render "layouts/footer"%>
     <!-- /.container -->
   </body>
+ 
 </html>
 
