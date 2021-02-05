@@ -14,11 +14,11 @@
      
         <div class="post-details ">
            <div class="post-actions">
-        <i class="fa fa-heart fa-2x like-<%=post.id%> post-like" data-id="<%=post.id%>"></i>
+        <i class="fa fa-heart fa-2x like-<%=post.id%> post-like <%= 'active' if post_liked_by_user?(post.id)%>" data-id="<%=post.id%>" data-remote="true"></i>
         <i class="fa fa-comment fa-2x post-comment"></i>
         </div>
-          <p><strong><%= pluralize(post.total_likes, "like") %></strong></p>
-          <p><strong><%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %></strong></p>
+          <p><strong id="post-<%=post.id%>-likes"><% if post.total_likes_count%> <%= post.total_likes_count%> <% else %> 0 <% end %> likes</strong></p>
+          <p><strong id="post-<%=post.id%>-comments"><%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %></strong></p>
           <%= simple_format post.description%>
           <p class = "text-muted"><%= time_ago_in_words post.created_at%> ago</p>
         </div>

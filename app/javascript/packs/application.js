@@ -4,8 +4,6 @@
 //= require jquery
 //= require jquery_ujs
 // that code so it'll be compiled.
-global.$ = require("jquery")
-require("jquery")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -19,7 +17,5 @@ ActiveStorage.start()
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 import "@fortawesome/fontawesome-free/css/all"
-
-
-
-require("packs/posts")
+global.$ = require("jquery")
+require("channels/posts")

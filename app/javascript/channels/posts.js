@@ -4,10 +4,17 @@ $(function () {
     $.ajax({
       url: "/post/like/"+post_id,
       method: "GET",
-      dataType: 'json'
       
-    }).done(function (res) {
-      console.log(res);
+    }).fail(function (a,b,c) {
+      alert("error")
+      console.log(a);
+      console.log(b);
+      console.log(c);
     });
   });
+});
+
+
+$(function() {
+  console.log($.ajax);
 });
