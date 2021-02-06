@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   mount_uploaders :image, ImageUploader
@@ -18,10 +18,10 @@ class User < ApplicationRecord
   end
 
   def total_followers
-    0
+    Follower.where(followers_id: self.id).count
   end
 
   def total_following
-    0
+    Follower.where(following_id: self.id).count
   end
 end

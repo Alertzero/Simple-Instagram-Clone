@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!
-
+  before_action :set_post, only: [:show]
   def new
     @post = Post.new
   end
 
   def create
+    
     @post = Post.new(post_params)
     @post.user_id = current_user.id if user_signed_in?
     if @post.save
@@ -16,11 +17,18 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    
+  end
 
   def destroy; end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id]) if params[:id].present?
+  end
 
   def post_params
     params.require(:post).permit({image: []}, :image_cache, :description)

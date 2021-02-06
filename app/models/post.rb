@@ -4,13 +4,10 @@ class Post < ApplicationRecord
   serialize :image, JSON
   belongs_to :user
   has_many :likes
+  has_many :comments
   before_create :set_active
 
   scope :active, -> { where active: true }
-
-  def total_likes
-    0
-  end
 
   private
 

@@ -6,8 +6,12 @@
       <% end %>
     </div>
     <div class="col-8 text-left">
-      <h1> <%= @user.full_name %> </h1>
-      <%= link_to "Edit", edit_user_registration_path, class: "btn btn-secondary"%>
+      <div class="row">
+        <div class="col-6">
+          <%= link_to "Edit", edit_user_registration_path, class: "btn btn-muted btn-custom float-right"%>
+          <h1> <%= @user.full_name %> </h1>
+        </div>
+      </div>
       <div class="profile-stats"><%= @user.post_count %> posts</div>
       <div class="profile-stats"><%= @user.total_followers %> followers</div>
       <div class="profile-stats"><%= @user.total_following %> following</div>
@@ -16,16 +20,15 @@
       <p><%= link_to @user.website if @user.website.present? %></p>
     </div>
     <div class="row ">
-      
-        <% @posts.each do |post|%>
-          <% post.image_urls.each do |url| %>
-        <div class= "col-4">
-              <%= image_tag url, class: "img img-fluid img-thumbnail m-3" %>
-        </div>
-          <%end%>
+      <% @posts.each do |post|%>
+        <% post.image_urls.each do |url| %>
+           
+          <div class= "col-4">
+            <%= link_to image_tag(url, :class => "img img-fluid img-thumbnail m-5 w-100 h-auto"), post_path(post.id)%>
+          </div>
           
-        <% end%>
-      
+        <%end%>
+      <% end%>
     </div>
   </div>
 </div>

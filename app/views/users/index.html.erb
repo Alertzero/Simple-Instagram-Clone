@@ -9,34 +9,45 @@
           <%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %>
         </div>
         <% post.image_urls.each do |url| %>
-          <%= image_tag url, class: "img img-fluid border border-dark align-items-start" %>
+          <%= image_tag url, class: "img img-fluid border border-dark align-items-start w-100 h-auto" %>
         <%end%>
-     
         <div class="post-details ">
-           <div class="post-actions">
-        <i class="fa fa-heart fa-2x like-<%=post.id%> post-like <%= 'active' if post_liked_by_user?(post.id)%>" data-id="<%=post.id%>" data-remote="true"></i>
-        <i class="fa fa-comment fa-2x post-comment"></i>
-        </div>
+          <div class="post-actions">
+            <i class="fa fa-heart fa-2x like-<%=post.id%> post-like <%= 'active' if post_liked_by_user?(post.id)%>" data-id="<%=post.id%>" data-remote="true"></i>
+            <%= link_to post_path(post.id) do %>
+              <i class="fa fa-comment fa-2x post-comment"></i>
+            <% end%>
+          </div>
           <p><strong id="post-<%=post.id%>-likes"><% if post.total_likes_count%> <%= post.total_likes_count%> <% else %> 0 <% end %> likes</strong></p>
           <p><strong id="post-<%=post.id%>-comments"><%= link_to post.user.username, profile_path(post.user.username), class: "text-dark" %></strong></p>
           <%= simple_format post.description%>
           <p class = "text-muted"><%= time_ago_in_words post.created_at%> ago</p>
+          <%= render "posts/comments", post: post %>
+          <div class="comment-box">
+            <%= form_with model: @comment do |f|%>
+              <%= f.hidden_field :post_id, value: post.id%>
+              <div class="input-group">
+                <%= f.text_field :comment, placeholder: "Add comment here", class: "form-control shadow-none"%>
+                <div class="input-group-append">
+                  <%= f.submit "Comment",class: "btn btn-success float-right"%>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
     <div class="col-4 user-summary">
       <p>
-       <% current_user.image_urls.each do |profile_pic| %>
-        <%= image_tag profile_pic, width: "50px", height: "50px",class: "profile-pic" %>
-      <% end %>
-      
-      
-      <strong><%= current_user.username %></strong><br>
-        <%= current_user.username%></p>
+        <% current_user.image_urls.each do |profile_pic| %>
+          <%= image_tag profile_pic, width: "50px", height: "50px",class: "profile-pic float-left mr-2" %>
+        <% end %>
+        <strong><%= current_user.username %></strong><br>
+        <%= current_user.full_name%></p>
       <div class="follower-sg">
-      <%= link_to "View all", "#", class: "float-right text-dark"%>
-      <p class="text-muted"> Suggestions for you </p> 
-      <%= render "users/follower_suggestions"%>
+        <%= link_to "View all", "#", class: "float-right text-dark"%>
+        <p class="text-muted"> Suggestions for you </p>
+        <%= render "users/follower_suggestions"%>
       </div>
     </div>
   </div>
