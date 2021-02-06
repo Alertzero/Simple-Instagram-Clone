@@ -16,12 +16,17 @@
 
  @import "bootstrap/scss/bootstrap";
 
- html, body {
-    height: 100%;
-    margin: 0;
-  }
+ body{ height:100vh; margin:0; }
 
- .maincon {
-    min-height: 100%;
-}
-
+ header{ min-height:50px; background:lightcyan; }
+ footer{ min-height:50px; background:PapayaWhip; }
+ 
+ /* Trick */
+ body{ 
+   display:flex; 
+   flex-direction:column; 
+ }
+ 
+ footer{
+   margin-top:auto; 
+ }

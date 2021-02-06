@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -27,7 +26,6 @@
     </style>
   </head>
   <body>
-  <div class = "maincon">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
       <a class="navbar-brand" href="<%= user_signed_in? ? dashboard_path : root_path%>">Instagram Clone</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,17 +41,14 @@
         </ul>
       </div>
     </nav>
-    <div role="main" class="container mt-5">
+    <article class="container mt-5">
       <div class="row">
         <div class="col-lg-12">
           <%= yield %>
         </div>
       </div>
-    </div>
-    </div>
-  <%= render "layouts/footer"%>
+    </article>
+    <%= render "layouts/footer"%>
     <!-- /.container -->
   </body>
- 
 </html>
-

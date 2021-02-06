@@ -6,10 +6,10 @@ class Like < ApplicationRecord
   after_destroy :unlike
 
   def update_like
-    Post.find(post_id).increment(:total_likes_count).save
+    Post.find(self.post_id).increment(:total_likes_count).save
   end
 
   def unlike
-    Post.find(post_id).decrement(:total_likes_count).save
+    Post.find(self.post_id).decrement(:total_likes_count).save
   end
 end

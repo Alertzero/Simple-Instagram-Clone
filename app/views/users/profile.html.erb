@@ -22,11 +22,17 @@
     <div class="row ">
       <% @posts.each do |post|%>
         <% post.image_urls.each do |url| %>
-           
-          <div class= "col-4">
-            <%= link_to image_tag(url, :class => "img img-fluid img-thumbnail m-5 w-100 h-auto"), post_path(post.id)%>
+          <div class= "col-4"">
+            <div class="m-5" >
+              <%= link_to image_tag(url, :class => " hover-overlay img img-fluid img-thumbnail w-100 h-auto text-center position-relative"), post_path(post.id)%>
+              
+             
+              <div class="position-absolute b-0">
+                <%= pluralize(post.total_likes_count, "like")%>
+                <%= pluralize(post.total_comments_count, "comment")%>
+              </div>
+            </div>
           </div>
-          
         <%end%>
       <% end%>
     </div>

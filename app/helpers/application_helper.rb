@@ -6,7 +6,7 @@ module ApplicationHelper
         if user.image.any? 
             image_path=user.image[0]
         end
-        image_tag(image_path, width: "40px", height: "40px", class: "profile-pic")
+        image_tag(image_path, width: "40px", height: "40px", class: "profile-pic ")
     end
 
 end
