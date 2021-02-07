@@ -4,9 +4,15 @@
 <h1>Welcome to Instagram Clone</h1>
 
 <p>Please register or sign in </p>
-
+<% if user_signed_in? %>
+    <%= current_user.name %>
+    [<%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>]
+  <% else %>
 <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success"%>
 <%= link_to "Sign in", new_user_session_path, class: "btn btn-secondary"%>
+  
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <% end %>
 
 
 </div>
