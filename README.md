@@ -1,24 +1,12 @@
-# README
+# Simple Instagram Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website is made as part of the odin project curriculum
 
-Things you may want to cover:
+# Learning Experience
 
-* Ruby version
+<li>Omniauth</li>
+<li>Carrierwave Id</li>
 
-* System dependencies
+# Live Demo
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+coming soon
